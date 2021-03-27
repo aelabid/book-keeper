@@ -68,8 +68,8 @@ function fetchBookmarks() {
 		bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 	} else {
 		bookmarks = [{
-			name: 'asmaa',
-			url: 'test.com'
+			name: 'asmaa Github',
+			url: 'https://github.com/asmaaEl99'
 		}];
 	localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 	}
