@@ -23,10 +23,14 @@ function validate(nameValue, urlValue) {
 	const regex = new RegExp(expression);
 	if(!nameValue || !urlValue){
 		alert('please submit values for both fields.');
-
+		return false;
 	}
 	if (!urlValue.match(regex)) {
 		alert('please provide a valid web address');
+		return false;
+	}
+	if (urlValue.match(regex)) {
+		return true;
 	}
 
 }
@@ -67,6 +71,7 @@ function fetchBookmarks() {
 	if(localStorage.getItem('bookmarks')) {
 		bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 	} else {
+		alert('hello');
 		bookmarks = [{
 			name: 'asmaa Github',
 			url: 'https://github.com/asmaaEl99'
@@ -93,7 +98,6 @@ function storeBookmark(e) {
 		urlValue = `https://${urlValue}`;
 	}
 
-	validate(nameValue, urlValue);
 
 	const bookmark = {
 		name: nameValue,
@@ -103,6 +107,7 @@ function storeBookmark(e) {
 	localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 	bookmarkForm.reset();
 	websiteNameEl.focus();
+	if(validate(nameValue, urlValue))
 	fetchBookmarks();
 
 
