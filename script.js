@@ -71,7 +71,6 @@ function fetchBookmarks() {
 	if(localStorage.getItem('bookmarks')) {
 		bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 	} else {
-		alert('hello');
 		bookmarks = [{
 			name: 'asmaa Github',
 			url: 'https://github.com/asmaaEl99'
